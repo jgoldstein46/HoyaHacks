@@ -31,6 +31,7 @@ import ClubsScreen from "../screens/ClubsScreen";
 import NewReleaseScreen from "../screens/NewReleaseScreen";
 import LoginScreen from "../screens/LoginScreen";
 import EditProfileScreen from "../screens/EditProfileScreen";
+import ClubProfileScreen from "../screens/ClubProfileScreen";
 
 export default function Navigation({
   colorScheme,
@@ -91,7 +92,11 @@ function RootNavigator() {
         component={NewReleaseScreen}
         options={{ title: "New Release" }}
       />
-      <Stack.Screen name="EditProfile" component={EditProfileScreen} options={{ title: "Edit Profile" }}/>
+      <Stack.Screen
+        name="EditProfile"
+        component={EditProfileScreen}
+        options={{ title: "Edit Profile" }}
+      />
       <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
@@ -107,7 +112,14 @@ const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 function ClubBottomTabNavigator() {
   const colorScheme = useColorScheme();
-
+  const defaultClub: Club = {
+    name: "Rome",
+    id: "",
+    description: "Some stuff here",
+    category: "",
+    pointOfContactName: "Julius Caesar",
+    pointOfContactEmail: "",
+  };
   return (
     <BottomTab.Navigator
       initialRouteName="Dashboard"
@@ -139,12 +151,13 @@ function ClubBottomTabNavigator() {
         })}
       />
       <BottomTab.Screen
-        name="Profile"
-        component={ProfileScreen}
+        name="ClubProfile"
+        component={ClubProfileScreen}
         options={{
           title: "Profile",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
+        initialParams={{ model: defaultClub }}
       />
     </BottomTab.Navigator>
   );
@@ -157,7 +170,7 @@ function BottomTabNavigator() {
     lastName: "Aurelius",
     email: "ma69@georgetown.edu",
     phone: "",
-    resume: ""
+    resume: "",
   };
   return (
     <BottomTab.Navigator
@@ -197,19 +210,18 @@ function BottomTabNavigator() {
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerRight: () => (
             <Pressable
-              onPress={() => navigation.navigate("EditProfile", {"model": defaultCandidate})}
+              onPress={() =>
+                navigation.navigate("EditProfile", { model: defaultCandidate })
+              }
               style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
               })}
             >
-              <Text
-                style={{ marginRight: 20, fontSize: 14 }}
-              >Edit</Text>
+              <Text style={{ marginRight: 20, fontSize: 14 }}>Edit</Text>
             </Pressable>
           ),
         })}
-        initialParams={{"model": defaultCandidate}}
-        
+        initialParams={{ model: defaultCandidate }}
       />
     </BottomTab.Navigator>
   );
