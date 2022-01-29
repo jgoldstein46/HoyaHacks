@@ -21,6 +21,7 @@ import ProfileScreen from '../screens/ProfileScreen';
 import PostingsScreen from '../screens/PostingsScreen';
 import ClubsScreen from '../screens/ClubsScreen';
 import NewReleaseScreen from '../screens/NewReleaseScreen';
+import LoginScreen from '../screens/LoginScreen';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -41,6 +42,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 function RootNavigator() {
   return (
     <Stack.Navigator>
+      <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Screen name="Postings" component={PostingsScreen} options={{ title: 'Postings' }} />

@@ -23,7 +23,8 @@ export type RootStackParamList = {
   Postings: undefined;
   Clubs: undefined;
   NewRelease: undefined;
-  PostingDetail: { title: string; id: string; description: string };
+  Login: undefined;
+  PostingDetail: { model: Posting };
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
