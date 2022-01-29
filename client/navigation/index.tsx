@@ -15,9 +15,12 @@ import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import DashboardScreen from '../screens/DashboardScreen';
-import TabTwoScreen from '../screens/ProfileScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
+import ProfileScreen from '../screens/ProfileScreen';
+import PostingsScreen from '../screens/PostingsScreen';
+import ClubsScreen from '../screens/ClubsScreen';
+import NewReleaseScreen from '../screens/NewReleaseScreen';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -40,6 +43,9 @@ function RootNavigator() {
     <Stack.Navigator>
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
+      <Stack.Screen name="Postings" component={PostingsScreen} options={{ title: 'Postings' }} />
+      <Stack.Screen name="Clubs" component={ClubsScreen} options={{ title: 'Clubs' }} />
+      <Stack.Screen name="NewRelease" component={NewReleaseScreen} options={{ title: 'New Release' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
@@ -86,7 +92,7 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="Profile"
-        component={TabTwoScreen}
+        component={ProfileScreen}
         options={{
           title: 'Profile',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
