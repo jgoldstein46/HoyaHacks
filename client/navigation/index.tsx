@@ -155,7 +155,7 @@ function BottomTabNavigator() {
   const defaultCandidate: Candidate = {
     firstName: "Marcus",
     lastName: "Aurelius",
-    email: "",
+    email: "ma69@georgetown.edu",
     phone: "",
     resume: ""
   };
