@@ -27,6 +27,7 @@ export type RootStackParamList = {
   Login: undefined;
   ClubDetail: {model: Club};
   PostingDetail: { model: Posting };
+  EditProfile: {model: Candidate};
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =

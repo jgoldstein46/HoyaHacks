@@ -13,7 +13,7 @@ import {
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
 import { ColorSchemeName, Pressable } from "react-native";
-
+import { Text } from "../components/Themed";
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import ModalScreen from "../screens/ModalScreen";
@@ -30,6 +30,7 @@ import PostingsScreen from "../screens/PostingsScreen";
 import ClubsScreen from "../screens/ClubsScreen";
 import NewReleaseScreen from "../screens/NewReleaseScreen";
 import LoginScreen from "../screens/LoginScreen";
+import EditProfileScreen from "../screens/EditProfileScreen";
 
 export default function Navigation({
   colorScheme,
@@ -90,6 +91,7 @@ function RootNavigator() {
         component={NewReleaseScreen}
         options={{ title: "New Release" }}
       />
+      <Stack.Screen name="EditProfile" component={EditProfileScreen} options={{ title: "Edit Profile" }}/>
       <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
@@ -195,17 +197,14 @@ function BottomTabNavigator() {
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerRight: () => (
             <Pressable
-              onPress={() => navigation.navigate("Modal")}
+              onPress={() => navigation.navigate("EditProfile", {"model": defaultCandidate})}
               style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
               })}
             >
-              <FontAwesome
-                name="info-circle"
-                size={25}
-                color={Colors[colorScheme].text}
-                style={{ marginRight: 15 }}
-              />
+              <Text
+                style={{ marginRight: 20, fontSize: 14 }}
+              >Edit</Text>
             </Pressable>
           ),
         })}
