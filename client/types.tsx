@@ -34,7 +34,7 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
 
 export type RootTabParamList = {
   Dashboard: undefined;
-  Profile: undefined;
+  Profile: {model: Candidate};
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =

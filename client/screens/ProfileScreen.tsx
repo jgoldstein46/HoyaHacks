@@ -2,13 +2,19 @@ import { StyleSheet } from 'react-native';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
+import { RootStackScreenProps, RootTabScreenProps } from '../types';
 
 
 
-export default function ProfileScreen() {
+export default function ProfileScreen({route, navigation}:RootTabScreenProps<"Profile">) {
+  const {model} = route.params;
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
+      <Text style={styles.title}>{model.firstName + ' ' + model.lastName}</Text>
+      <Text style={styles.container}>{'Email: ' + model.email + '\n' 
+      + 'Phone Number: ' +model.phone + '\n'
+      + 'Resume: ' +model.resume} 
+      </Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <EditScreenInfo path="/screens/TabTwoScreen.tsx" />
     </View>
