@@ -32,10 +32,10 @@ import NewReleaseScreen from "../screens/candidates/NewReleaseScreen";
 import LoginScreen from "../screens/LoginScreen";
 import EditProfileScreen from "../screens/candidates/EditProfileScreen";
 import ClubProfileScreen from "../screens/ClubProfileScreen";
-import ClubDashboardScreen from "../screens/ClubDashboard";
+import ClubDashboardScreen from "../screens/ClubDashboardScreen";
 import ViewApplicationsScreen from "../screens/ViewApplicationsScreen";
 import { defaultCandidate, defaultClub } from "../util/default";
-
+import EditClubProfileScreen from "../screens/EditClubProfileScreen";
 
 export default function Navigation({
   colorScheme,
@@ -107,6 +107,11 @@ function RootNavigator() {
         initialParams={{ model: defaultClub }}
         options={{ title: "All Applications" }}
       />
+      <Stack.Screen
+        name="EditClubProfile"
+        component={EditClubProfileScreen}
+        options={{ title: "Edit Club Profile" }}
+      />
       <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
@@ -157,10 +162,22 @@ function ClubBottomTabNavigator() {
       <BottomTab.Screen
         name="ClubProfile"
         component={ClubProfileScreen}
-        options={{
+        options={({ navigation }: RootTabScreenProps<"ClubProfile">) => ({
           title: "Profile",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-        }}
+          headerRight: () => (
+            <Pressable
+              onPress={() =>
+                navigation.navigate("EditClubProfile", { model: defaultClub })
+              }
+              style={({ pressed }) => ({
+                opacity: pressed ? 0.5 : 1,
+              })}
+            >
+              <Text style={{ marginRight: 20, fontSize: 14 }}>Edit</Text>
+            </Pressable>
+          ),
+        })}
         initialParams={{ model: defaultClub }}
       />
     </BottomTab.Navigator>

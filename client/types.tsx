@@ -28,6 +28,7 @@ export type RootStackParamList = {
   ClubDetail: {model: Club};
   PostingDetail: { model: Posting };
   EditProfile: {model: Candidate};
+  EditClubProfile: {model: Club};
   ViewApplications: {model: Club};
 };
 
