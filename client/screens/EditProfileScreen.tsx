@@ -11,8 +11,7 @@ import { Text, View } from "../components/Themed";
 import { RootStackScreenProps, RootTabScreenProps } from "../types";
 import storage from "../models/storage";
 import { useEffect } from "react";
-
-
+import React from "react";
 
 export default function EditProfileScreen({
   route,
@@ -22,7 +21,11 @@ export default function EditProfileScreen({
   const onSave = async () => {
     // TODO: Make API call to save data
   };
-            
+  const [firstName, setFirstName] = React.useState(model.firstName);
+  const [lastName, setLastName] = React.useState(model.lastName);
+  const [email, setEmail] = React.useState(model.email);
+  const [phone, setPhone] = React.useState(model.phone);
+  const [resume, setResume] = React.useState(model.resume);
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -30,30 +33,51 @@ export default function EditProfileScreen({
         <View style={styles.subContainer}>
           <Text style={styles.name}>First Name: </Text>
           <TextInput
-            value={model.firstName}
+            value={firstName}
+            onChangeText={(text) => {
+              setFirstName(text);
+            }}
             style={[styles.name, styles.input]}
           />
         </View>
         <View style={styles.subContainer}>
           <Text style={styles.name}>Last Name: </Text>
           <TextInput
-            value={model.lastName}
+            value={lastName}
+            onChangeText={(text) => {
+              setLastName(text);
+            }}
             style={[styles.name, styles.input]}
           />
         </View>
         <View style={styles.subContainer}>
           <Text style={styles.email}>Email: </Text>
-          <TextInput value={model.email} style={[styles.email, styles.input]} />
+          <TextInput
+            value={email}
+            onChangeText={(text) => {
+              setEmail(text);
+            }}
+            style={[styles.email, styles.input]}
+          />
         </View>
         <View style={styles.subContainer}>
           <Text style={styles.email}>Phone: </Text>
-          <TextInput value={model.phone} style={[styles.phone, styles.input]} />
+          <TextInput
+            value={phone}
+            style={[styles.phone, styles.input]}
+            onChangeText={(text) => {
+              setPhone(text);
+            }}
+          />
         </View>
         <View style={styles.subContainer}>
           <Text style={styles.email}>Resume: </Text>
           <TextInput
-            value={model.resume}
+            value={resume}
             style={[styles.resume, styles.input]}
+            onChangeText={(text) => {
+              setResume(text);
+            }}
           />
         </View>
         <TouchableOpacity

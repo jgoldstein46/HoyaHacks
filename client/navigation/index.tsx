@@ -32,6 +32,8 @@ import NewReleaseScreen from "../screens/NewReleaseScreen";
 import LoginScreen from "../screens/LoginScreen";
 import EditProfileScreen from "../screens/EditProfileScreen";
 import ClubProfileScreen from "../screens/ClubProfileScreen";
+import ClubDashboardScreen from "../screens/ClubDashboard";
+import ViewApplicationsScreen from "../screens/ViewApplicationsScreen";
 
 export default function Navigation({
   colorScheme,
@@ -47,6 +49,23 @@ export default function Navigation({
     </NavigationContainer>
   );
 }
+
+const defaultClub: Club = {
+  name: "Rome",
+  id: "",
+  description: "Some stuff here",
+  category: "",
+  pointOfContactName: "Julius Caesar",
+  pointOfContactEmail: "",
+};
+
+const defaultCandidate: Candidate = {
+  firstName: "Marcus",
+  lastName: "Aurelius",
+  email: "ma69@georgetown.edu",
+  phone: "",
+  resume: "",
+};
 
 /**
  * A root stack navigator is often used for displaying modals on top of all other content.
@@ -97,6 +116,12 @@ function RootNavigator() {
         component={EditProfileScreen}
         options={{ title: "Edit Profile" }}
       />
+      <Stack.Screen
+        name="ViewApplications"
+        component={ViewApplicationsScreen}
+        initialParams={{ model: defaultClub }}
+        options={{ title: "All Applications" }}
+      />
       <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
@@ -112,14 +137,7 @@ const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 function ClubBottomTabNavigator() {
   const colorScheme = useColorScheme();
-  const defaultClub: Club = {
-    name: "Rome",
-    id: "",
-    description: "Some stuff here",
-    category: "",
-    pointOfContactName: "Julius Caesar",
-    pointOfContactEmail: "",
-  };
+
   return (
     <BottomTab.Navigator
       initialRouteName="Dashboard"
@@ -128,9 +146,9 @@ function ClubBottomTabNavigator() {
       }}
     >
       <BottomTab.Screen
-        name="Dashboard"
-        component={DashboardScreen}
-        options={({ navigation }: RootTabScreenProps<"Dashboard">) => ({
+        name="ClubDashboard"
+        component={ClubDashboardScreen}
+        options={({ navigation }: RootTabScreenProps<"ClubDashboard">) => ({
           title: "Dashboard",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerRight: () => (
@@ -149,6 +167,7 @@ function ClubBottomTabNavigator() {
             </Pressable>
           ),
         })}
+        initialParams={{ model: defaultClub }}
       />
       <BottomTab.Screen
         name="ClubProfile"
@@ -165,13 +184,7 @@ function ClubBottomTabNavigator() {
 
 function BottomTabNavigator() {
   const colorScheme = useColorScheme();
-  const defaultCandidate: Candidate = {
-    firstName: "Marcus",
-    lastName: "Aurelius",
-    email: "ma69@georgetown.edu",
-    phone: "",
-    resume: "",
-  };
+
   return (
     <BottomTab.Navigator
       initialRouteName="Dashboard"

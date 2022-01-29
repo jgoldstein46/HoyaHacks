@@ -28,6 +28,7 @@ export type RootStackParamList = {
   ClubDetail: {model: Club};
   PostingDetail: { model: Posting };
   EditProfile: {model: Candidate};
+  ViewApplications: {model: Club};
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
@@ -37,6 +38,7 @@ export type RootTabParamList = {
   Dashboard: undefined;
   Profile: {model: Candidate};
   ClubProfile: {model: Club};
+  ClubDashboard: {model: Club};
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
