@@ -4,12 +4,12 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
 } from "react-native";
-import { TextInput } from "../components/Themed";
+import { TextInput } from "../../components/Themed";
 import { AsyncStorageStatic } from "react-native";
-import EditScreenInfo from "../components/EditScreenInfo";
-import { Text, View } from "../components/Themed";
-import { RootStackScreenProps, RootTabScreenProps } from "../types";
-import storage from "../models/storage";
+import EditScreenInfo from "../../components/EditScreenInfo";
+import { Text, View } from "../../components/Themed";
+import { RootStackScreenProps, RootTabScreenProps } from "../../types";
+import storage from "../../models/storage";
 import { useEffect } from "react";
 import React from "react";
 

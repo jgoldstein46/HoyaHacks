@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
-import { RootStackScreenProps, RootTabScreenProps } from '../types';
+import EditScreenInfo from '../../components/EditScreenInfo';
+import { Text, View } from '../../components/Themed';
+import { RootStackScreenProps, RootTabScreenProps } from '../../types';
 
-import storage from '../models/storage';
+import storage from '../../models/storage';
 
 
 export default function ProfileScreen({route, navigation}:RootTabScreenProps<"Profile">) {

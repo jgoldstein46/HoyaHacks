@@ -18,22 +18,24 @@ import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
-import DashboardScreen from "../screens/DashboardScreen";
+import DashboardScreen from "../screens/candidates/DashboardScreen";
 import {
   RootStackParamList,
   RootTabParamList,
   RootTabScreenProps,
 } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
-import ProfileScreen from "../screens/ProfileScreen";
+import ProfileScreen from "../screens/candidates/ProfileScreen";
 import PostingsScreen from "../screens/PostingsScreen";
-import ClubsScreen from "../screens/ClubsScreen";
-import NewReleaseScreen from "../screens/NewReleaseScreen";
+import ClubsScreen from "../screens/candidates/ClubsScreen";
+import NewReleaseScreen from "../screens/candidates/NewReleaseScreen";
 import LoginScreen from "../screens/LoginScreen";
-import EditProfileScreen from "../screens/EditProfileScreen";
+import EditProfileScreen from "../screens/candidates/EditProfileScreen";
 import ClubProfileScreen from "../screens/ClubProfileScreen";
 import ClubDashboardScreen from "../screens/ClubDashboard";
 import ViewApplicationsScreen from "../screens/ViewApplicationsScreen";
+import { defaultCandidate, defaultClub } from "../util/default";
+
 
 export default function Navigation({
   colorScheme,
@@ -49,23 +51,6 @@ export default function Navigation({
     </NavigationContainer>
   );
 }
-
-const defaultClub: Club = {
-  name: "Rome",
-  id: "",
-  description: "Some stuff here",
-  category: "",
-  pointOfContactName: "Julius Caesar",
-  pointOfContactEmail: "",
-};
-
-const defaultCandidate: Candidate = {
-  firstName: "Marcus",
-  lastName: "Aurelius",
-  email: "ma69@georgetown.edu",
-  phone: "",
-  resume: "",
-};
 
 /**
  * A root stack navigator is often used for displaying modals on top of all other content.

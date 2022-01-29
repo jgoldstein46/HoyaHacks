@@ -17,8 +17,8 @@ declare global {
 }
 
 export type RootStackParamList = {
-  Root: NavigatorScreenParams<RootTabParamList> | undefined;
-  ClubRoot: NavigatorScreenParams<RootTabParamList> | undefined;
+  Root: NavigatorScreenParams<RootTabParamList> | {model: Candidate};
+  ClubRoot: NavigatorScreenParams<RootTabParamList> | {model: Club};
   Modal: undefined;
   NotFound: undefined;
   Postings: undefined;
