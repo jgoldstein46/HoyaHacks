@@ -25,6 +25,7 @@ export type RootStackParamList = {
   Clubs: undefined;
   NewRelease: undefined;
   Login: undefined;
+  ClubDetail: {model: Club};
   PostingDetail: { model: Posting };
 };
 
