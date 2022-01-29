@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
   },
   subContainer: {
     flex: 1,
-    borderWidth: 2,
+    //borderWidth: 2,
     padding: 10,
     margin: 10,
     //borderColor: "green",
