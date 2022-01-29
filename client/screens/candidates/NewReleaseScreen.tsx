@@ -5,7 +5,7 @@ import EditScreenInfo from "../../components/EditScreenInfo";
 import { Text, View } from "../../components/Themed";
 import { RootTabScreenProps } from "../../types";
 
-import { sample } from "../../util/default";
+import { samplePostings } from "../../util/default";
 
 export default function NewRelease() {
   const [refreshing, setRefreshing] = React.useState(false);
@@ -36,7 +36,7 @@ export default function NewRelease() {
           refreshControl={
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }
-          data={sample}
+          data={samplePostings}
           renderItem={renderFlatListItem}
           keyExtractor={(item) => item.id}
         />

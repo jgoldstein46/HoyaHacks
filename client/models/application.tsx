@@ -1,4 +1,5 @@
 class Application {
+  applicationID: string;
   candidateID: string;
   resume: string;
   postingID: string;
@@ -7,6 +8,7 @@ class Application {
   date: string;
 
   constructor(
+    applicationID: string,
     candidateID: string,
     resume: string,
     postingID: string,
@@ -14,6 +16,7 @@ class Application {
     status: string,
     date: string
   ) {
+    this.applicationID = applicationID;
     this.candidateID = candidateID;
     this.resume = resume;
     this.postingID = postingID;
