@@ -17,7 +17,7 @@ declare global {
 }
 
 export type RootStackParamList = {
-  Root: NavigatorScreenParams<RootTabParamList> | undefined;
+  Root: NavigatorScreenParams<RootTabParamList>  | {model: Candidate};
   ClubRoot: NavigatorScreenParams<RootTabParamList> | undefined;
   Modal: undefined;
   NotFound: undefined;
@@ -28,6 +28,9 @@ export type RootStackParamList = {
   ClubDetail: {model: Club};
   PostingDetail: { model: Posting };
   EditProfile: {model: Candidate};
+  StudentLogin: undefined;
+  StudentRegistration: undefined;
+  Intro: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =

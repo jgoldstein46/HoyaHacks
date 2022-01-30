@@ -8,15 +8,8 @@ import { RootStackScreenProps, RootTabScreenProps } from "../types";
 import PostingsScreen from "./PostingsScreen";
 
 export default function LoginScreen({navigation}: RootStackScreenProps<"Login">) {
-    const defaultCandidate: Candidate = {
-      firstName: "Marcus",
-      lastName: "Aurelius",
-      email: "",
-      phone: "",
-      resume: ""
-    };
     const onStudentClicked = () => {
-        navigation.navigate("Root", {model: defaultCandidate});
+        navigation.navigate("Root");
     };
     const onClubClicked = () => {
         navigation.navigate("ClubRoot");

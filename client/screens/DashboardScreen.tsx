@@ -13,8 +13,11 @@ import { RootTabScreenProps } from "../types";
 import PostingsScreen from "./PostingsScreen";
 
 export default function DashboardScreen({
+  route,
   navigation,
 }: RootTabScreenProps<"Dashboard">) {
+
+
   const [refreshing, setRefreshing] = React.useState(false);
 
   const onRefresh = React.useCallback(() => {

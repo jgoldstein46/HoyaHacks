@@ -1,0 +1,161 @@
+import { StyleSheet } from "react-native";
+
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      padding: 20,
+    //   alignItems: "center",
+    //   justifyContent: "center",
+    },
+    subContainer: {
+      height: "25%",
+      width: "80%",
+      borderWidth: 2,
+      borderColor: "green",
+      alignItems: "center",
+      justifyContent: "center",
+      margin: "5%",
+    },
+    title: {
+      fontSize: 26,
+      fontWeight: "bold",
+      color: "white"
+    },
+    form: {
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    height: "100%",
+    },
+    titleText: {
+    fontSize: 36,
+    // fontFamily: "Comfortaa_400Regular",
+    lineHeight: 40,
+    letterSpacing: -0.015,
+    color: "#fff",
+    marginBottom: "2%",
+    marginLeft: "5%",
+    marginTop: "2%",
+    },
+    labelText: {
+    // fontFamily: "Roboto_400Regular",
+    color: "#fff",
+    marginLeft: "5%",
+    marginTop: "1%",
+    },
+    errorText: {
+    // fontFamily: "Roboto_400Regular",
+    marginLeft: "5%",
+    color: "green",
+    marginTop: "1%",
+    },
+    textInput: {
+    height: 50,
+    borderWidth: 2,
+    borderColor: 'green',
+    fontSize: 18,
+    marginTop: 5,
+    paddingLeft: 10,
+    // fontFamily: "Roboto_400Regular",
+    marginLeft: "5%",
+    marginRight: "5%",
+    color: 'white'
+    },
+    submit: {
+    // backgroundColor: "#45B3E0",
+    borderRadius: 6,
+    alignItems: "center",
+    justifyContent: "center",
+    // zIndex: 0,
+    marginLeft: "5%",
+    marginRight: "5%",
+    padding: "1%",
+    marginTop: "3%",
+    height: 50,
+    borderColor: 'green',
+    borderWidth: 2,
+    backgroundColor: 'black'
+    },
+    submitText: {
+    color: "green",
+    // fontFamily: "Rubik_900Black",
+    },
+    // pickerItem: {
+    // // fontFamily: "Rubik_400Regular",
+    // fontSize: 10,
+    // },
+    // picker: {
+    // // fontFamily: "Rubik_400Regular",
+    // backgroundColor: "#fff",
+    // borderColor: "#000",
+    // borderWidth: 2,
+    // marginLeft: "5%",
+    // marginRight: "5%",
+    // marginBottom: "1%",
+    // marginTop: "1%",
+    // flexDirection: "column",
+    // width: "90%",
+    // justifyContent: "flex-start",
+    // borderRadius: 0,
+    // },
+    // countryCodePicker: {
+    // borderWidth: 0,
+    // },
+    // dobPicker: {
+    // // fontFamily: "Rubik_400Regular",
+    // backgroundColor: "#fff",
+    // borderColor: "#000",
+    // borderWidth: 2,
+    // borderRadius: 0,
+    // justifyContent: "flex-start",
+    // width: "32%",
+    // },
+    // dateOfBirthView: {
+    // backgroundColor: "#fff",
+    // flexDirection: "row",
+    // justifyContent: "space-between",
+    // marginLeft: "5%",
+    // marginRight: "5%",
+    // marginTop: "1%",
+    // marginBottom: "1%",
+    // },
+    // mobileNumberView: {
+    // flexDirection: "row",
+    // justifyContent: "flex-start",
+    // marginLeft: "5%",
+    // marginRight: "5%",
+    // borderColor: "#000",
+    // borderWidth: 2,
+    // marginTop: "1%",
+    // marginBottom: "3%",
+    // zIndex: 2,
+    // },
+    // countryCodeTextInput: {
+    // flex: 4,
+    // },
+    // checkBoxView: {
+    // marginTop: "3%",
+    // marginLeft: "5%",
+    // marginRight: "6%",
+    // flexDirection: "row",
+    // justifyContent: "flex-start",
+    // },
+    // termsView: {
+    // marginTop: "2%",
+    // marginLeft: "2%",
+    // },
+    // termsText: {
+    // fontFamily: "Roboto_400Regular",
+    // width: "90%",
+    // },
+    // countryText: {
+    // fontSize: 18,
+    // color: "#34ACEF",
+    // marginLeft: "4%",
+    // fontFamily: "Rubik_400Regular",
+    // marginTop: "1%",
+    // marginBottom: "2%",
+    // },
+  
+  });
+
+  export default styles;
