@@ -33,6 +33,7 @@ export type RootStackParamList = {
   Intro: undefined;
   EditClubProfile: {model: Club};
   ViewApplications: {model: Club};
+  AddPosting: {model: Club};
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =

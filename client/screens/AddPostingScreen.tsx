@@ -13,10 +13,10 @@ import storage from "../models/storage";
 import { useEffect } from "react";
 import React from "react";
 import { Formik } from "formik";
-export default function EditClubProfileScreen({
+export default function AddPostingScreen({
   route,
   navigation,
-}: RootStackScreenProps<"EditClubProfile">) {
+}: RootStackScreenProps<"AddPosting">) {
   let { model } = route.params;
   const onSave = async () => {
     // TODO: Make API call to save data
@@ -25,9 +25,7 @@ export default function EditClubProfileScreen({
   return (
     <Formik
       initialValues={{
-        clubName: "",
-        contactName: "",
-        contactEmail: "",
+        postTitle: "",
         description: "",
       }}
       onSubmit={onSave}
@@ -36,32 +34,18 @@ export default function EditClubProfileScreen({
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.container}>
             <View style={styles.subContainer}>
-              <Text style={styles.name}>Club Name: </Text>
+              <Text style={styles.name}>Club Name: {model.name}</Text>
+            </View>
+            <View style={styles.subContainer}>
+              <Text style={styles.name}>Title: </Text>
               <TextInput
-                onChangeText={handleChange("clubName")}
-                onBlur={handleBlur("clubName")}
-                value={values.clubName}
+                onChangeText={handleChange("postTitle")}
+                onBlur={handleBlur("postTitle")}
+                value={values.postTitle}
                 style={[styles.name, styles.input]}
               />
             </View>
-            <View style={styles.subContainer}>
-              <Text style={styles.name}>Contact Name: </Text>
-              <TextInput
-                onChangeText={handleChange("contactName")}
-                onBlur={handleBlur("contactName")}
-                value={values.contactName}
-                style={[styles.name, styles.input]}
-              />
-            </View>
-            <View style={styles.subContainer}>
-              <Text style={styles.email}>Contact Email: </Text>
-              <TextInput
-                onChangeText={handleChange("contactEmail")}
-                onBlur={handleBlur("contactEmail")}
-                value={values.contactEmail}
-                style={[styles.email, styles.input]}
-              />
-            </View>
+
             <View style={styles.subContainer}>
               <Text style={styles.description}>Description: </Text>
               <TextInput
@@ -78,7 +62,7 @@ export default function EditClubProfileScreen({
               ]}
               onPress={handleSubmit as any}
             >
-              <Text style={styles.saveButton}>Save</Text>
+              <Text style={styles.addButton}>Add</Text>
             </TouchableOpacity>
           </View>
         </TouchableWithoutFeedback>
@@ -133,7 +117,7 @@ const styles = StyleSheet.create({
     width: "100%",
     color: "grey",
   },
-  saveButton: {
+  addButton: {
     fontSize: 20,
     fontWeight: "bold",
   },

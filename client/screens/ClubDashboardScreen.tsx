@@ -29,7 +29,7 @@ export default function ClubDashboardScreen({
   };
 
   const addPostingsClicked = () => {
-    navigation.navigate("NewRelease");
+    navigation.navigate("AddPosting", { model });
   };
 
   return (

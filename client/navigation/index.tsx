@@ -40,6 +40,7 @@ import ClubDashboardScreen from "../screens/ClubDashboardScreen";
 import ViewApplicationsScreen from "../screens/ViewApplicationsScreen";
 import { defaultCandidate, defaultClub } from "../util/default";
 import EditClubProfileScreen from "../screens/EditClubProfileScreen";
+import AddPostingScreen from "../screens/AddPostingScreen";
 
 export default function Navigation({
   colorScheme,
@@ -121,6 +122,11 @@ function RootNavigator() {
         component={ViewApplicationsScreen}
         initialParams={{ model: defaultClub }}
         options={{ title: "All Applications" }}
+      />
+      <Stack.Screen
+        name="AddPosting"
+        component={AddPostingScreen}
+        options={{ title: "Add New Posting" }}
       />
       <Stack.Screen
         name="EditClubProfile"
