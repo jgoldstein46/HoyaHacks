@@ -76,7 +76,8 @@ export default function StudentRegistration({navigation}: RootStackScreenProps<"
                     lastName: values.lastName,
                     email: values.email,
                     phone: values.phone,
-                    resume: values.resume
+                    resume: values.resume,
+                    id: ""
                 };
                 navigation.navigate("Root", {model: candidate});
                 
