@@ -18,7 +18,7 @@ import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
-import DashboardScreen from "../screens/DashboardScreen";
+import DashboardScreen from "../screens/candidates/DashboardScreen";
 import {
   RootStackParamList,
   RootStackScreenProps,
@@ -26,14 +26,20 @@ import {
   RootTabScreenProps,
 } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
-import ProfileScreen from "../screens/ProfileScreen";
+import ProfileScreen from "../screens/candidates/ProfileScreen";
 import PostingsScreen from "../screens/PostingsScreen";
-import ClubsScreen from "../screens/ClubsScreen";
-import NewReleaseScreen from "../screens/NewReleaseScreen";
+import ClubsScreen from "../screens/candidates/ClubsScreen";
+import NewReleaseScreen from "../screens/candidates/NewReleaseScreen";
 import LoginScreen from "../screens/LoginScreen";
-import EditProfileScreen from "../screens/EditProfileScreen";
+// import EditProfileScreen from "../screens/EditProfileScreen";
 import StudentRegistration from "../screens/registration/StudentRegistration";
 import Intro from "../screens/Intro";
+import EditProfileScreen from "../screens/candidates/EditProfileScreen";
+import ClubProfileScreen from "../screens/ClubProfileScreen";
+import ClubDashboardScreen from "../screens/ClubDashboardScreen";
+import ViewApplicationsScreen from "../screens/ViewApplicationsScreen";
+import { defaultCandidate, defaultClub } from "../util/default";
+import EditClubProfileScreen from "../screens/EditClubProfileScreen";
 
 export default function Navigation({
   colorScheme,
@@ -105,7 +111,22 @@ function RootNavigator() {
         component={NewReleaseScreen}
         options={{ title: "New Release" }}
       />
-      <Stack.Screen name="EditProfile" component={EditProfileScreen} options={{ title: "Edit Profile" }}/>
+      <Stack.Screen
+        name="EditProfile"
+        component={EditProfileScreen}
+        options={{ title: "Edit Profile" }}
+      />
+      <Stack.Screen
+        name="ViewApplications"
+        component={ViewApplicationsScreen}
+        initialParams={{ model: defaultClub }}
+        options={{ title: "All Applications" }}
+      />
+      <Stack.Screen
+        name="EditClubProfile"
+        component={EditClubProfileScreen}
+        options={{ title: "Edit Club Profile" }}
+      />
       <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
@@ -130,9 +151,9 @@ function ClubBottomTabNavigator() {
       }}
     >
       <BottomTab.Screen
-        name="Dashboard"
-        component={DashboardScreen}
-        options={({ navigation }: RootTabScreenProps<"Dashboard">) => ({
+        name="ClubDashboard"
+        component={ClubDashboardScreen}
+        options={({ navigation }: RootTabScreenProps<"ClubDashboard">) => ({
           title: "Dashboard",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerRight: () => (
@@ -151,14 +172,28 @@ function ClubBottomTabNavigator() {
             </Pressable>
           ),
         })}
+        initialParams={{ model: defaultClub }}
       />
       <BottomTab.Screen
-        name="Profile"
-        component={ProfileScreen}
-        options={{
+        name="ClubProfile"
+        component={ClubProfileScreen}
+        options={({ navigation }: RootTabScreenProps<"ClubProfile">) => ({
           title: "Profile",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-        }}
+          headerRight: () => (
+            <Pressable
+              onPress={() =>
+                navigation.navigate("EditClubProfile", { model: defaultClub })
+              }
+              style={({ pressed }) => ({
+                opacity: pressed ? 0.5 : 1,
+              })}
+            >
+              <Text style={{ marginRight: 20, fontSize: 14 }}>Edit</Text>
+            </Pressable>
+          ),
+        })}
+        initialParams={{ model: defaultClub }}
       />
     </BottomTab.Navigator>
   );
@@ -171,7 +206,8 @@ function BottomTabNavigator({route, navigation}:RootStackScreenProps<"Root">) {
     lastName: "Aurelius",
     email: "",
     phone: "",
-    resume: ""
+    resume: "",
+    id: ""
   };
   console.log(route); 
   // const {model} = route.params;
@@ -214,19 +250,18 @@ function BottomTabNavigator({route, navigation}:RootStackScreenProps<"Root">) {
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerRight: () => (
             <Pressable
-              onPress={() => navigation.navigate("EditProfile", {"model": defaultCandidate})}
+              onPress={() =>
+                navigation.navigate("EditProfile", { model: defaultCandidate })
+              }
               style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
               })}
             >
-              <Text
-                style={{ marginRight: 20, fontSize: 14 }}
-              >Edit</Text>
+              <Text style={{ marginRight: 20, fontSize: 14 }}>Edit</Text>
             </Pressable>
           ),
         })}
-        initialParams={{"model": defaultCandidate}}
-        
+        initialParams={{ model: defaultCandidate }}
       />
     </BottomTab.Navigator>
   );

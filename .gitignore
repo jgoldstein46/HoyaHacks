@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 node_modules
 .expo
 
+=======
+/client/node_modules/*
+
+/client/.expo/*
+>>>>>>> fdf31add32a20f5954be2f52fd168393cbbaaa38

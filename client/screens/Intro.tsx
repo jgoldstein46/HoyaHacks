@@ -11,9 +11,9 @@ export default function Intro({navigation}: RootStackScreenProps<"Login">) {
     // const onStudentLogin = () => {
     //     navigation.navigate("Root");
     // };
-    const onClubClicked = () => {
-        navigation.navigate("ClubRoot");
-    };
+    // const onClubClicked = () => {
+    //     navigation.navigate("ClubRoot");
+    // };
     const onStudentRegister = () => {
         navigation.navigate("StudentRegistration"); 
     }

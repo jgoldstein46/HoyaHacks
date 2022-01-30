@@ -14,18 +14,7 @@ const linking: LinkingOptions<RootStackParamList> = {
   config: {
     screens: {
       Root: {
-        screens: {
-          Dashboard: {
-            screens: {
-              DashboardScreen: 'one',
-            },
-          },
-          Profile: {
-            screens: {
-              ProfileScreen: 'two',
-            },
-          },
-        },
+        
       },
       Modal: 'modal',
       NotFound: '*',
