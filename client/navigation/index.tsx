@@ -21,6 +21,7 @@ import NotFoundScreen from "../screens/NotFoundScreen";
 import DashboardScreen from "../screens/DashboardScreen";
 import {
   RootStackParamList,
+  RootStackScreenProps,
   RootTabParamList,
   RootTabScreenProps,
 } from "../types";
@@ -31,6 +32,8 @@ import ClubsScreen from "../screens/ClubsScreen";
 import NewReleaseScreen from "../screens/NewReleaseScreen";
 import LoginScreen from "../screens/LoginScreen";
 import EditProfileScreen from "../screens/EditProfileScreen";
+import StudentRegistration from "../screens/registration/StudentRegistration";
+import Intro from "../screens/Intro";
 
 export default function Navigation({
   colorScheme,
@@ -57,6 +60,16 @@ function RootNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen
+        name="Intro"
+        component={Intro}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="StudentRegistration"
+        component={StudentRegistration}
+        options={{ headerShown: false }}
+        />
+      <Stack.Screen
         name="Login"
         component={LoginScreen}
         options={{ headerShown: false }}
@@ -65,6 +78,7 @@ function RootNavigator() {
         name="Root"
         component={BottomTabNavigator}
         options={{ headerShown: false }}
+        // initialParams={{ candidate: Candidate}}
       />
       <Stack.Screen
         name="ClubRoot"
@@ -150,7 +164,7 @@ function ClubBottomTabNavigator() {
   );
 }
 
-function BottomTabNavigator() {
+function BottomTabNavigator({route, navigation}:RootStackScreenProps<"Root">) {
   const colorScheme = useColorScheme();
   const defaultCandidate: Candidate = {
     firstName: "Marcus",
@@ -159,6 +173,8 @@ function BottomTabNavigator() {
     phone: "",
     resume: ""
   };
+  console.log(route); 
+  // const {model} = route.params;
   return (
     <BottomTab.Navigator
       initialRouteName="Dashboard"
@@ -166,6 +182,7 @@ function BottomTabNavigator() {
         tabBarActiveTintColor: Colors[colorScheme].tint,
       }}
     >
+      
       <BottomTab.Screen
         name="Dashboard"
         component={DashboardScreen}
