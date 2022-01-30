@@ -73,7 +73,7 @@ function RootNavigator() {
       <Stack.Screen
         name="StudentRegistration"
         component={StudentRegistration}
-        options={{ headerShown: false }}
+        options={{ title: "Student Registration" }}
         />
       <Stack.Screen
         name="Login"

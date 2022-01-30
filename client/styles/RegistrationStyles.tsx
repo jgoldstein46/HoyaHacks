@@ -19,22 +19,11 @@ const styles = StyleSheet.create({
     title: {
       fontSize: 26,
       fontWeight: "bold",
-      color: "white"
     },
     form: {
     flexDirection: "column",
     justifyContent: "flex-start",
     height: "100%",
-    },
-    titleText: {
-    fontSize: 36,
-    // fontFamily: "Comfortaa_400Regular",
-    lineHeight: 40,
-    letterSpacing: -0.015,
-    color: "#fff",
-    marginBottom: "2%",
-    marginLeft: "5%",
-    marginTop: "2%",
     },
     labelText: {
     // fontFamily: "Roboto_400Regular",
